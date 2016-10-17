@@ -1,5 +1,5 @@
 class ChangeTextToBinary < ActiveRecord::Migration
   def change
-  	change_column :messages, :text, 'binary USING CAST("text" AS binary)'
+  	change_column :messages, :text, 'bytea USING CAST("text" AS bytea)'
   end
 end
