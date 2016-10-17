@@ -1,0 +1,28 @@
+<h1>Welcome to the Kottans test task implementation!</h1>
+
+<% if @errors %>
+	<div class="errors">
+		<% @errors.each do |error| %>
+			<div class="error"><%= error %></div>
+		<% end %>
+	</div>
+<% end %>
+
+<form name="new_message" id="new_message" action="/submit" method="POST">
+
+	<p>Enter your message here:</p>
+	<textarea form="new_message" name="message[text]" rows="6"><%= @params[:text] if @params %></textarea>
+
+	<p>Choose the deletion method:</p>
+	<input type="radio" id="h" name="message[del_method]" value="h" required>
+	Delete the message after <input type="number" name="message[hours]" min="1" max="24" value="1" selected="true"> hour<br>
+	<input type="radio" id="v" name="message[del_method]" value="v">
+	Delete the message after the <input type="number" name="message[visits]" min="1" max="10" value="1"> link visit
+
+	<div class="flex">
+		<p class="inline">Create a password to access your message</p>
+		<input type="password" name="message[key]" required>
+	</div>
+
+	<input type="submit" name="submit" value="Save the message">
+</form>

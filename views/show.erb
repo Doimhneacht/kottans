@@ -1,0 +1,24 @@
+<form name="password" method="POST">
+	<div class="flex">
+		<p class="inline six-w">Enter your password to access the message:</p>
+		<div class="four-w">
+			<input type="password" name="password" required>
+			<input id="small-btn" type="submit" value="OK">
+		</div>
+	</div>
+</form>
+
+<% if params[:password] != nil %>
+	<% if @error %>
+		<div class="errors">
+			<div class="error"><%= @error %></div>
+		</div>
+	<% else %>
+		<div class="success">
+			<p>Here's your message:</p>
+			<p><%= @text %></p>
+		</div>
+
+		<a href="/"><div class="button">Return to the home page</div></a>
+	<% end %>
+<% end %>

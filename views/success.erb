@@ -1,0 +1,25 @@
+<h1>Congratulations!</h1>
+
+<p>Your message was successfully saved. You can access it here: <a id="link" href="<%= request.base_url + @link %>"><%= request.base_url + @link %></a></p>
+
+<p>You chose to delete the message 
+	<% if @message[:del_method] == 'h' %>
+		<%= "in #{@message[:hours]} " %>
+			<% if @message[:hours] == 1 %>
+			<%= "hour." %>
+			<% else %>
+			<%= "hours." %>
+			<% end %>
+	<% else %>
+		<%= "after #{@message[:visits]} " %>
+			<% if @message[:visits] == 1 %>
+			<%= "visit." %>
+			<% else %>
+			<%= "visits." %>
+			<% end %>
+	<% end %>
+</p>
+
+<p>Mind that you can access the message only with your password.</p>
+
+<a href="/"><div class="button">Return to the home page</div></a>
