@@ -14,6 +14,8 @@ end
 
 configure :production do
 	db = URI.parse(ENV['DATABASE_URL'] || 'postgres:///localhost/mydb')
+	set :key, ":b\xC9\xB1\x15\xB4-\t\xA7~\xFF\x00\x8E~\xA9n"
+	set :iv, "H\xB1\xD6C\x9F\x8A{\xE9\xF7\x1E\x9Aj\xB2\xF1\xD0\xA0"
 
 	ActiveRecord::Base.establish_connection(
 		:adapter  => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
